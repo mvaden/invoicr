@@ -32,3 +32,8 @@ var Invoice = module.exports = mongoose.model('Invoice', invoiceSchema);
 module.exports.getInvoices = function(callback, limit){
   Invoice.find(callback).limit(limit).sort([['createdAt', 'descending']])
 }
+
+// Get Invoice
+module.exports.getInvoiceById = function(id, callback){
+  Invoice.findById(id, callback);
+}

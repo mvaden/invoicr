@@ -14,4 +14,14 @@ router.get('/', function(req, res){
   })
 })
 
+// Get single invoice
+router.get('/:id', function(req, res){
+  Invoice.getInvoiceById(req.params.id, function(err, invoice){
+    if(err){
+      res.send(err);
+    }
+    res.json(invoice);
+  })
+})
+
 module.exports = router;

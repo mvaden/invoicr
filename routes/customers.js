@@ -14,4 +14,14 @@ router.get('/', function(req, res){
   })
 })
 
+// Get single customer
+router.get('/:id', function(req, res){
+  Customer.getCustomerById(req.params.id, function(err, customer){
+    if(err){
+      res.send(err);
+    }
+    res.json(customer);
+  })
+})
+
 module.exports = router;

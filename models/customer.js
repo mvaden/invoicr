@@ -38,7 +38,12 @@ var customerSchema = mongoose.Schema({
 
 var Customer = module.exports = mongoose.model('Customer', customerSchema);
 
-// Get Customer
+// Get Customers
 module.exports.getCustomers = function(callback, limit){
   Customer.find(callback).limit(limit).sort([['first_name', 'ascending']])
+}
+
+// Get Customer
+module.exports.getCustomerById = function(id, callback){
+  Customer.findById(id, callback);
 }
